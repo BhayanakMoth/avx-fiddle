@@ -24,12 +24,11 @@ int main(int  n, char * argv[])
 		stbi_write_jpg(image_out.c_str(), width, height, components, img_buffer, 1);
 		STBI_FREE(img_buffer);
 		std::cout << "Run successful.\n";
-		std::system("pause");
+
 	}
 	else
 	{
 		std::cout << "Usage: AVXIsNotFun.exe /path/to/input /path/to/output \n";
-		std::system("pause");
 	}
 	return 0;
 }
