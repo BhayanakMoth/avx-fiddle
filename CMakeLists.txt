@@ -7,3 +7,7 @@ project ("AVXIsNotFun")
 find_package(benchmark REQUIRED)
 # Include sub-projects.
 add_subdirectory ("AVXIsNotFun")
+
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+	set(CMAKE_CXX_FLAGS "-mavx2")
+endif()
