@@ -12,6 +12,6 @@ $ cd avx-fiddle
 $ cmake -E make_directory "build"
 # Generate build system files with cmake.
 cmake -DCMAKE_BUILD_TYPE=Release -S . -B "build" -Dbenchmark_DIR="path/to/benchmarkConfig.cmake"
-# Build the library.
+# Build the application.
 $ cmake --build "build" --config Release
 ```
