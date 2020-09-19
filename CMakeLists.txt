@@ -6,10 +6,10 @@ set(CMAKE_BUILD_TYPE=Release)
 
 set(CMAKE_CXX_FLAGS_RELEASE "/O2")
 
-project ("AVXIsNotFun")
+project ("avx-fiddle")
 find_package(benchmark REQUIRED)
 # Include sub-projects.
-add_subdirectory ("AVXIsNotFun")
+add_subdirectory ("avx-fiddle")
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 	set(CMAKE_CXX_FLAGS "-mavx2")
