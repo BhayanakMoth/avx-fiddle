@@ -4,15 +4,15 @@ on: [push]
 
 jobs:
   clang-format:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2actions/checkout@v2
+      - uses: actions/checkout@v2
 
-      - name: Install clang-format-11
-        run: sudo apt-get install clang-format-11
+      - name: Install clang-format-10
+        run: sudo apt-get install clang-format-10
 
       - name: Format the files in avx-fiddle
-        run: clang-format-11 -i avx-fiddle/*
+        run: clang-format -i avx-fiddle/*
 
       # Generate a patch file to check if formatting creates a diff
       - name: Generate patch file
