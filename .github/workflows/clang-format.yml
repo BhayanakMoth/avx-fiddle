@@ -1,0 +1,34 @@
+name: clang-format
+
+on: [push]
+
+jobs:
+  clang-format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2actions/checkout@v2
+
+      - name: Install clang-format-11
+        run: sudo apt-get install clang-format-11
+
+      - name: Format the files in avx-fiddle
+        run: clang-format-11 -i avx-fiddle/*
+
+      # Generate a patch file to check if formatting creates a diff
+      - name: Generate patch file
+        run: git diff > clang-format_diff.patch
+
+      # Exit if diff
+      - name: Set job exit status
+        run: "[ ! -s clang-format_diff.patch ]"
+
+      # Artifacts
+      - name: Upload formatting diff
+        uses: actions/upload-artifact@v2
+        with:
+          # We are in ${GITHUB_WORKSPACE}
+          # ${GITHUB_SHA} won't work: use ${{ github.sha }}
+          name: clang-format_diff-${{ github.sha }}
+          path: clang-format_diff.patch
+        # Use always() to always run this step to publish test results when there are test failures
+        if: ${{ always() }}
