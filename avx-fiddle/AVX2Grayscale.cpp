@@ -34,8 +34,8 @@ inline __m256i togray(__m256i red, __m256i green, __m256i blue) {
 __m256i convert(__m256i* src_img) {
 	__m256i* src = src_img;
 
-	__m256i a = _mm256_loadu_epi32(src);
-	__m256i b = _mm256_loadu_epi32((src + 1));
+	__m256i a = _mm256_loadu_si256(src);
+	__m256i b = _mm256_loadu_si256((src + 1));
 	__m256i red   = packRed(a, b);
 	__m256i green = packGreen(a, b);
 	__m256i blue  = packBlue(a, b);

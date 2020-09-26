@@ -1,4 +1,4 @@
-﻿// AVXIsNotFun.cpp
+﻿// avx-fiddle.cpp
 //
 
 #include "avx-fiddle.h"
