@@ -2,3 +2,5 @@
 out/*
 /benchmark
 CMakeSettings.json
+build/*
+.gitignore
