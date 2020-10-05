@@ -9,12 +9,12 @@ https://software.intel.com/content/dam/develop/public/us/en/downloads/gaussian_b
 #include <immintrin.h>
 
 /* AVX Implementation: gaussianHorizontal_avx
- *		oTemp - Temporary small buffer used between left to rigclanht pass
- *		id    - input image
- *		od    - output image from this filter
- *		height - image height
- *		width - image width
- * 		a0, a1, a2, a3, b1, b2, cprev, cnext: Gaussian coefficients
+ * oTemp  - Temporary small buffer used between left to right pass
+ * id     - input image
+ * od     - output image from this filter
+ * height - image height
+ * width  - image width
+ * a0, a1, a2, a3, b1, b2, cprev, cnext: Gaussian coefficients
  */
 void gaussianVertical_avx(float *oTemp, float *id, unsigned int *od, int height,
                           int width, float *a0, float *a1, float *a2, float *a3,
